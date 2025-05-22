@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Церква Святого Індексу</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#8E6FF7',secondary:''},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        :root {
+            --dark-bg: #121212;
+            --dark-secondary: #1e1e1e;
+            --primary: #8E6FF7;
+            --primary-dark: #7559d6;
+            --accent: #ff5e5e;
+            --text: #e0e0e0;
+            --text-secondary: #a0a0a0;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            font-family: 'IBM Plex Mono', monospace;
+            overflow-x: hidden;
+        }
+        
+        .vt323 {
+            font-family: 'VT323', monospace;
+        }
+        
+        .ibm {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .glitch {
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 0.15em solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(142, 111, 247, 0.04), transparent);
+            animation: scan 7s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        .noise::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAFJElEQVRogc2aW29cRRDHfzO7Pm7W2NghiZ0LCQkhiHCTUCrEU4UQfY5UqUL9Kn0Aie/AE+IWJCQkEBIKlHBJAiUJSbDj9fqys8Ph39U+e87Zs+cYlLY0mrOXmfnPdE91dU8XuAhARLqBm4A+oKP+fAZYBH5W1YMLmfciBBGRXuABYAToM7NrzKwHkHq3FeAoMA38oKrHtjXpNiAi8gBwP9Btqg+a2TAwBAwDg8AAkAMKQBFYAOaAOWAWmFLVme3Ovy0QEXkUGKnDvALcBtwB3AoMWZ1aSwiIQVWBCnAGOAx8D3wDHFDVxe1g2DJE/ZBHgF3A68CTwPXUWbZoVQMqwCngY+AdVT3YKsyWIETkJeBZ4DXgCTPb3YTlGvZQYA34BHhTVT9vFmZTEBG5F3gVeNbM9jRr9SYhFPgKeENVP2tmzIYgIvIy8IKZPdqMpVuAUOBT4HVV/bDRwHUhROQV4Hkze6QVK7cIocCnwGuq+kG9QWtCiMgY8JKZPdaqZVuEUOAT4FVVHa/VuQYiIvcAL5rZvq1adBEgFPgQeEVV/1+rYxVERPqBMTN7ersWXAQIBT4AXlbVk0mDKoiI5IAxM3t2O4M3AyEiOTMrNjFWgfdV9aXkiyqIiIwCz5nZQ80MWmfeHHCZmfUCPUAXUALOquqZJsbmgKKZnW9i7PvAS6o6VX0oACLyGvC8mT3YzGDAzK4F7gLuBO4G9gK7gG4zywMZQIAycBo4ChwCDgIHVPX4BnPkgJKZlZqY/z3gBVWdrv5OQSQ4Ij9sZvs3GKgD2A88BjwM3GZmPYmVWQ9CgHPAJPAV8Kmqft1gfAYom1lpg/7vAs+p6kz1YRUkiRMbOTsRGQGeAJ40s+ELsXadMUvAb8A48I6qfrdO3wxQ2QBiHHhaVWeTh2sgIrIbeNrMHl9vAhG5HXgGeBoYbGK1tmuVs8A48Laqfr7GHBmgukbrjf0EeEZVjyQP14CIyB3Ak2b2WL0BRGQf8BzwOHDJdlZ7nbnOA+PAW6r6RaJvBqiuA/Ep8KSqHks+XwMiIsPAfjO7v94EIvIg8CLwAJC9UAgzKwOfAW+q6r+ZTCYDVNaA+A+4X1WPrzVGDURE+oC9ZnZfnc4C7AeeB+5tYnU3a1VH+Kiqfp/NZjNAOQHxD3Cfqp5Ya4wagIj0AnvMbG+dzgLsA14A7r1YEGZWAb5V1QOZTCYDlBIQfwP3qOrJemPUgIhIN7DbzPbU6SzAPcArwD0XA8LMysC0qh7IZDIZ4HwC4ghwt6qeWm+cGhAR6QJ2mdnuOp0FuBt4Fbi7XYhqHKgzXgmYU9UTmUwmA5xLQBwG7lLV0xuNVQMiIp3AkJntqtNZgLuA14C72oEws7KInFPVU5lMJgOcTUD8DtypqrMbjVcDIiIdwKCZDdXpLMCdwOvAHe1AmNmKiCyo6ulMJpMBFhIQvwF3qOq5jcasARGRPDCQhEh0FuB24A3gtlYhzGxFRM6o6tlMJpMBFhMQvwK3q+rCZuPWgIhIDug3s/46nQW4FXgTuKUdCDNbFpEFVT2XyWQywFIC4hfgNlVd3GzsGhARyQJ9ZtZXp7MAt9QhbmoVwsyWRGRRVRczmUwGWE5A/AzcqqpLm41fAxKRXjPrrdNZgJuBt4Ab24Ews0URWVLVpUwmkwEqCYifgFtUdXkrAGsWPSKyB/gL+FFVT7UxTxvTVFZkRVVXtgKwJoiI7AE+A35R1ZlWJ7tYS+LEP1X1n60O/j9U7O+cFDCpcgAAAABJRU5ErkJggg==");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .crt::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 9998;
+        }
+        
+        .hover-glitch:hover {
+            animation: hover-glitch 0.3s ease-in-out;
+        }
+        
+        @keyframes hover-glitch {
+            0% { transform: translate(0); }
+            25% { transform: translate(-5px, 5px); }
+            50% { transform: translate(5px, -5px); }
+            75% { transform: translate(-3px, -3px); }
+            100% { transform: translate(0); }
+        }
+        
+        .terminal-input {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .terminal-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(142, 111, 247, 0.3);
+        }
+        
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--primary);
+            background-color: transparent;
+            display: inline-block;
+            position: relative;
+            margin-right: 8px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        
+        .custom-checkbox:checked {
+            background-color: var(--primary);
+        }
+        
+        .custom-checkbox:checked::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 14px;
+        }
+        
+        .button-glitch {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        
+        .button-glitch:hover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: button-glitch 1s linear;
+        }
+        
+        @keyframes button-glitch {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(142, 111, 247, 0.2);
+        }
+        
+        .ascii-divider {
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1;
+            color: var(--primary);
+            user-select: none;
+        }
+        
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+            transform: translate3d(0, 0, 0);
+        }
+        
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--dark-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Custom selection */
+        ::selection {
+            background: var(--primary);
+            color: black;
+        }
+        
+        /* Remove input arrows */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="noise crt">
+    <div class="scanline"></div>
+    
+    <header class="bg-[#1a1a1a] border-b border-primary/30 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="font-['Pacifico'] text-2xl text-primary hover-glitch">
+                Церква Святого Індексу
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#horoscope" class="text-gray-300 hover:text-primary transition-colors duration-200 hover-glitch">Гороскопи</a>
+                <a href="#religion" class="text-gray-300 hover:text-primary transition-colors duration-200 hover-glitch">SEO-релігія</a>
+                <a href="#confession" class="text-gray-300 hover:text-primary transition-colors duration-200 hover-glitch">Сповідальня</a>
+                <a href="#memes" class="text-gray-300 hover:text-primary transition-colors duration-200 hover-glitch">Мемосховище</a>
+                <a href="#blog" class="text-gray-300 hover:text-primary transition-colors duration-200 hover-glitch">Проклятий блог</a>
+                <a href="#shop" class="text-gray-300 hover:text-primary transition-colors duration-200 hover-glitch">Магазин дарів</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="text-sm text-gray-400 hover:text-primary transition-colors duration-200">UA</button>
+                <span class="text-gray-600">|</span>
+                <button class="text-sm text-gray-400 hover:text-primary transition-colors duration-200">EN</button>
+                
+                <a href="#temple" class="hidden md:flex items-center px-4 py-2 bg-primary/10 border border-primary/50 text-primary hover:bg-primary/20 transition-all duration-200 rounded-button">
+                    <span class="w-5 h-5 flex items-center justify-center mr-2">
+                        <i class="ri-lock-line"></i>
+                    </span>
+                    <span>Увійти до Храму</span>
+                </a>
+                
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-300 hover:text-primary" id="mobile-menu-button">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#1a1a1a] border-t border-primary/30 py-4">
+            <div class="container mx-auto px-4 flex flex-col space-y-4">
+                <a href="#horoscope" class="text-gray-300 hover:text-primary transition-colors duration-200 py-2">Гороскопи</a>
+                <a href="#religion" class="text-gray-300 hover:text-primary transition-colors duration-200 py-2">SEO-релігія</a>
+                <a href="#confession" class="text-gray-300 hover:text-primary transition-colors duration-200 py-2">Сповідальня</a>
+                <a href="#memes" class="text-gray-300 hover:text-primary transition-colors duration-200 py-2">Мемосховище</a>
+                <a href="#blog" class="text-gray-300 hover:text-primary transition-colors duration-200 py-2">Проклятий блог</a>
+                <a href="#shop" class="text-gray-300 hover:text-primary transition-colors duration-200 py-2">Магазин дарів</a>
+                <a href="#temple" class="flex items-center px-4 py-2 bg-primary/10 border border-primary/50 text-primary hover:bg-primary/20 transition-all duration-200 rounded-button w-full justify-center">
+                    <span class="w-5 h-5 flex items-center justify-center mr-2">
+                        <i class="ri-lock-line"></i>
+                    </span>
+                    <span>Увійти до Храму</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="relative py-20 md:py-32 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=dark%20cyberpunk%20digital%20landscape%20with%20purple%20glowing%20elements%2C%20abstract%20digital%20world%20with%20code%20fragments%2C%20matrix%20style%2C%20dark%20theme%2C%20cyberpunk%20aesthetic%2C%20digital%20art%2C%20high%20detail&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-black/70"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="vt323 text-4xl md:text-6xl font-bold mb-6 text-primary typewriter">SEO — це біль, віра і crawl-бюджет</h1>
+                    <p class="text-lg md:text-xl mb-8 text-gray-300">Ласкаво просимо до абсурдного світу пошукової оптимізації, де алгоритми — боги, а ми — лише смертні, що намагаються їх задобрити.</p>
+                    
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="#horoscope" class="px-6 py-3 bg-primary hover:bg-primary/90 text-black font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">Дізнатися свою долю</a>
+                        <a href="#confession" class="px-6 py-3 bg-transparent border border-primary text-primary hover:bg-primary/10 font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">Сповідатися</a>
+                    </div>
+                    
+                    <div class="mt-12 text-xs text-gray-500 ascii-divider">
+                        <pre>
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |G|o|o|g|l|e|b|o|t| |c|r|a|w|l|s| |i|n|t|o| |y|o|u|r|
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Horoscope Section -->
+        <section id="horoscope" class="py-16 md:py-24 bg-[#151515]">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="vt323 text-3xl md:text-4xl font-bold mb-2 text-primary">Щоденні SEO-гороскопи</h2>
+                    <p class="text-gray-400 mb-12">Дізнайтеся, що зірки (і алгоритми) підготували для вашого сайту сьогодні.</p>
+                    
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg p-6 md:p-8 mb-8">
+                        <div id="horoscope-content" class="mb-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+                                    <i class="ri-search-eye-line ri-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="vt323 text-xl font-bold text-white">Ваше пророцтво на 22 травня 2025</h3>
+                                    <p class="text-sm text-gray-400">Четвер, день Юпітера і Google Core Update</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-lg text-gray-300 italic mb-4" id="prophecy">Сьогодні Марс у сузір'ї Пінгвіна. Ваш CTR впаде до 0.02%, але не панікуйте — це лише тимчасово. Використовуйте більше H2 заголовків і принесіть жертву Googlebot'у у вигляді XML-карти сайту.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <h4 class="text-primary mb-2 font-medium">Щасливі ключові слова</h4>
+                                    <p class="text-gray-300 text-sm">купити, знижка, безкоштовно</p>
+                                </div>
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <h4 class="text-primary mb-2 font-medium">Нещасливі мета-теги</h4>
+                                    <p class="text-gray-300 text-sm">description, canonical, robots</p>
+                                </div>
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <h4 class="text-primary mb-2 font-medium">Сприятливий час</h4>
+                                    <p class="text-gray-300 text-sm">15:30 - 16:45 (за Googletime)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button id="new-prophecy" class="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-black font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">Отримати нове пророцтво</button>
+                    </div>
+                    
+                    <div class="text-center text-sm text-gray-500">
+                        <p>* Гороскопи генеруються випадковим чином і не мають жодного відношення до реальності.<br>Як і більшість SEO-порад в інтернеті.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Religion Section -->
+        <section id="religion" class="py-16 md:py-24 bg-[#121212]">
+            <div class="container mx-auto px-4">
+                <h2 class="vt323 text-3xl md:text-4xl font-bold mb-2 text-primary text-center">Церква Святого Індексу</h2>
+                <p class="text-gray-400 mb-12 text-center max-w-2xl mx-auto">Вірування, ритуали та священні тексти для тих, хто присвятив своє життя служінню алгоритмам.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Deities -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg p-6 card-hover transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                            <i class="ri-robot-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="vt323 text-2xl font-bold mb-4 text-white">Пантеон богів</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+                                    <i class="ri-search-line"></i>
+                                </span>
+                                <div>
+                                    <h4 class="font-medium text-primary">Googlebot Всемогутній</h4>
+                                    <p class="text-gray-400 text-sm">Головне божество, що вирішує долю всіх сайтів. Примхливий і непередбачуваний.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+                                    <i class="ri-microsoft-line"></i>
+                                </span>
+                                <div>
+                                    <h4 class="font-medium text-primary">Бінг Другорядний</h4>
+                                    <p class="text-gray-400 text-sm">Молодший бог, якого згадують лише у відчаї, коли Googlebot не відповідає.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+                                    <i class="ri-bar-chart-line"></i>
+                                </span>
+                                <div>
+                                    <h4 class="font-medium text-primary">Аналітикус</h4>
+                                    <p class="text-gray-400 text-sm">Бог статистики, що спостерігає за кожним кліком і сесією. Жорстокий і безжальний.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Rituals -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg p-6 card-hover transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                            <i class="ri-file-list-3-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="vt323 text-2xl font-bold mb-4 text-white">Священні ритуали</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+                                    <i class="ri-refresh-line"></i>
+                                </span>
+                                <div>
+                                    <h4 class="font-medium text-primary">Щоденне оновлення контенту</h4>
+                                    <p class="text-gray-400 text-sm">Ритуал, що виконується щодня для задобрення Googlebot'а. Мінімум 500 слів.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+                                    <i class="ri-link-m"></i>
+                                </span>
+                                <div>
+                                    <h4 class="font-medium text-primary">Жертвоприношення лінкбілдингу</h4>
+                                    <p class="text-gray-400 text-sm">Щомісячний ритуал, що вимагає жертв у вигляді якісних зворотних посилань.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+                                    <i class="ri-speed-line"></i>
+                                </span>
+                                <div>
+                                    <h4 class="font-medium text-primary">Очищення кешу</h4>
+                                    <p class="text-gray-400 text-sm">Ритуал очищення, що виконується при повному місяці для покращення швидкості завантаження.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Sacred Texts -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg p-6 card-hover transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                            <i class="ri-book-open-line ri-2x text-primary"></i>
+                        </div>
+                        <h3 class="vt323 text-2xl font-bold mb-4 text-white">Священні тексти</h3>
+                        <div class="bg-[#222] p-4 rounded border border-primary/20 mb-4">
+                            <p class="text-gray-300 text-sm italic">"І сказав Googlebot: "Нехай буде контент". І став контент. І побачив Googlebot, що контент добрий, і відділив контент унікальний від контенту дублікату."</p>
+                            <p class="text-right text-xs text-primary mt-2">— Книга Індексації, 1:3-4</p>
+                        </div>
+                        <div class="bg-[#222] p-4 rounded border border-primary/20 mb-4">
+                            <p class="text-gray-300 text-sm italic">"Блаженні ті, хто оптимізує для мобільних пристроїв, бо вони успадкують перші позиції."</p>
+                            <p class="text-right text-xs text-primary mt-2">— Нагірна проповідь Ранді Фішкіна</p>
+                        </div>
+                        <div class="bg-[#222] p-4 rounded border border-primary/20">
+                            <p class="text-gray-300 text-sm italic">"Легше верблюду пройти крізь вушко голки, ніж сайту з дублікатами потрапити в топ-10."</p>
+                            <p class="text-right text-xs text-primary mt-2">— Притчі Метта Каттса</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Confession Section -->
+        <section id="confession" class="py-16 md:py-24 bg-[#151515]">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="vt323 text-3xl md:text-4xl font-bold mb-2 text-primary">Сповідальня SEO-грішників</h2>
+                    <p class="text-gray-400 mb-12">Розкажіть про свої SEO-гріхи анонімно. Googlebot все одно все знає.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Confession Form -->
+                        <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg p-6">
+                            <h3 class="vt323 text-2xl font-bold mb-4 text-white">Сповідатися</h3>
+                            <form id="confession-form">
+                                <div class="mb-4">
+                                    <label for="sin-category" class="block text-sm font-medium text-gray-400 mb-2">Категорія гріха</label>
+                                    <div class="relative">
+                                        <select id="sin-category" class="terminal-input w-full rounded pr-8 appearance-none">
+                                            <option value="content">Контентні гріхи</option>
+                                            <option value="technical">Технічні гріхи</option>
+                                            <option value="blackhat">Чорнокапелюшні гріхи</option>
+                                            <option value="client">Гріхи з клієнтами</option>
+                                        </select>
+                                        <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                            <i class="ri-arrow-down-s-line text-primary"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="sin-text" class="block text-sm font-medium text-gray-400 mb-2">Опишіть свій гріх</label>
+                                    <textarea id="sin-text" rows="4" class="terminal-input w-full rounded resize-none" placeholder="Я використав keyword stuffing на головній сторінці..."></textarea>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="custom-checkbox">
+                                        <span class="text-sm text-gray-400">Я розумію, що Googlebot все одно знає про мої гріхи</span>
+                                    </label>
+                                </div>
+                                
+                                <button type="submit" class="w-full px-4 py-2 bg-primary hover:bg-primary/90 text-black font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">Відпустити гріхи</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Recent Confessions -->
+                        <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg p-6">
+                            <h3 class="vt323 text-2xl font-bold mb-4 text-white">Анонімні сповіді</h3>
+                            <div class="space-y-4 max-h-[350px] overflow-y-auto pr-2">
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <p class="text-gray-300 text-sm italic">Я noindex'нув головну сторінку на три дні і ніхто не помітив.</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-primary">Технічні гріхи</span>
+                                        <span class="text-xs text-gray-500">22.05.2025</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <p class="text-gray-300 text-sm italic">Я сказав клієнту, що його сайт буде в топ-3 за місяць. Минуло вже пів року...</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-primary">Гріхи з клієнтами</span>
+                                        <span class="text-xs text-gray-500">21.05.2025</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <p class="text-gray-300 text-sm italic">Я копіював контент з Wikipedia і просто змінював кожне п'яте слово.</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-primary">Контентні гріхи</span>
+                                        <span class="text-xs text-gray-500">20.05.2025</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <p class="text-gray-300 text-sm italic">Я купив 1000 зворотних посилань за $5 на Fiverr. Через тиждень сайт зник з індексу.</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-primary">Чорнокапелюшні гріхи</span>
+                                        <span class="text-xs text-gray-500">19.05.2025</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-[#222] p-4 rounded border border-primary/20">
+                                    <p class="text-gray-300 text-sm italic">Я переконав клієнта, що його сайт потребує "технічного SEO" і три місяці просто змінював мета-теги.</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-primary">Гріхи з клієнтами</span>
+                                        <span class="text-xs text-gray-500">18.05.2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Memes Section -->
+        <section id="memes" class="py-16 md:py-24 bg-[#121212]">
+            <div class="container mx-auto px-4">
+                <h2 class="vt323 text-3xl md:text-4xl font-bold mb-2 text-primary text-center">Мемосховище</h2>
+                <p class="text-gray-400 mb-12 text-center max-w-2xl mx-auto">Колекція найсмішніших SEO-мемів, що допоможуть пережити черговий алгоритмічний апдейт.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Meme 1 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=funny%20meme%20about%20SEO%20with%20text%20overlay%2C%20showing%20frustrated%20person%20looking%20at%20computer%20screen%20with%20dropping%20analytics%20chart%2C%20dark%20humor%2C%20digital%20art%20style&width=600&height=400&seq=1&orientation=landscape" alt="SEO Meme" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-2">Коли Google випускає новий Core Update</h3>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400">Додано: 15.05.2025</span>
+                                <div class="flex space-x-2">
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-share-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Meme 2 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=funny%20meme%20about%20client%20expectations%20vs%20reality%20in%20SEO%2C%20split%20screen%20showing%20rocket%20to%20the%20moon%20vs%20slow%20turtle%2C%20dark%20humor%2C%20digital%20art%20style&width=600&height=400&seq=2&orientation=landscape" alt="SEO Meme" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-2">Очікування клієнта vs. Реальність SEO</h3>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400">Додано: 10.05.2025</span>
+                                <div class="flex space-x-2">
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-share-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Meme 3 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=funny%20meme%20about%20keyword%20stuffing%2C%20showing%20text%20overloaded%20with%20keywords%20like%20a%20burger%20with%20too%20many%20ingredients%2C%20dark%20humor%2C%20digital%20art%20style&width=600&height=400&seq=3&orientation=landscape" alt="SEO Meme" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-2">Коли клієнт вимагає 5% щільності ключових слів</h3>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400">Додано: 05.05.2025</span>
+                                <div class="flex space-x-2">
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-share-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Meme 4 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=funny%20meme%20about%20backlinks%2C%20showing%20person%20desperately%20begging%20for%20links%2C%20dark%20humor%2C%20digital%20art%20style&width=600&height=400&seq=4&orientation=landscape" alt="SEO Meme" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-2">Аутріч-спеціаліст на 30-й день роботи</h3>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400">Додано: 01.05.2025</span>
+                                <div class="flex space-x-2">
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-share-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Meme 5 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=funny%20meme%20about%20SEO%20reports%2C%20showing%20person%20making%20up%20excuses%20with%20complex%20charts%2C%20dark%20humor%2C%20digital%20art%20style&width=600&height=400&seq=5&orientation=landscape" alt="SEO Meme" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-2">Щомісячний звіт для клієнта, коли позиції впали</h3>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400">Додано: 25.04.2025</span>
+                                <div class="flex space-x-2">
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-share-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Meme 6 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=funny%20meme%20about%20technical%20SEO%2C%20showing%20confused%20person%20looking%20at%20complex%20code%20and%20robots.txt%2C%20dark%20humor%2C%20digital%20art%20style&width=600&height=400&seq=6&orientation=landscape" alt="SEO Meme" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-2">Коли розробник питає, що таке canonical</h3>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400">Додано: 20.04.2025</span>
+                                <div class="flex space-x-2">
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                    <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary transition-colors">
+                                        <i class="ri-share-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <button class="px-6 py-3 bg-transparent border border-primary text-primary hover:bg-primary/10 font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">
+                        <span class="w-5 h-5 flex items-center justify-center mr-2 inline-block">
+                            <i class="ri-upload-line"></i>
+                        </span>
+                        <span>Завантажити свій мем</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Blog Section -->
+        <section id="blog" class="py-16 md:py-24 bg-[#151515]">
+            <div class="container mx-auto px-4">
+                <h2 class="vt323 text-3xl md:text-4xl font-bold mb-2 text-primary text-center">Проклятий блог</h2>
+                <p class="text-gray-400 mb-12 text-center max-w-2xl mx-auto">Статті, які ніколи не будуть проіндексовані. Читайте на свій страх і ризик.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <article class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=dark%20cyberpunk%20image%20of%20301%20redirect%20concept%2C%20showing%20digital%20labyrinth%20with%20glowing%20paths%2C%20technical%2C%20dark%20theme&width=600&height=400&seq=7&orientation=landscape" alt="301 Redirect" class="w-full h-full object-cover object-top">
+                            <div class="absolute top-0 right-0 bg-primary text-black text-xs font-medium px-2 py-1">
+                                Технічне SEO
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-primary transition-colors">301-самопокарання: Як правильно зламати свій сайт редиректами</h3>
+                            <p class="text-gray-400 text-sm mb-4">Детальний гайд, як створити ідеальний цикл редиректів, щоб Googlebot назавжди заблукав у вашому сайті.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-2">
+                                        <span class="text-primary text-xs">МК</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Максим Карлсон</span>
+                                </div>
+                                <span class="text-xs text-gray-500">22.05.2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 2 -->
+                    <article class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=dark%20cyberpunk%20image%20of%20keyword%20stuffing%20concept%2C%20showing%20text%20being%20forcefully%20injected%20with%20keywords%2C%20technical%2C%20dark%20theme&width=600&height=400&seq=8&orientation=landscape" alt="Keyword Density" class="w-full h-full object-cover object-top">
+                            <div class="absolute top-0 right-0 bg-primary text-black text-xs font-medium px-2 py-1">
+                                Контент
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-primary transition-colors">5% keyword density — клієнт щасливий, Google — ні</h3>
+                            <p class="text-gray-400 text-sm mb-4">Як переконати клієнта, що ключові слова в кожному реченні — це не найкраща ідея, і при цьому не втратити контракт.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-2">
+                                        <span class="text-primary text-xs">ОВ</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Олена Вишневська</span>
+                                </div>
+                                <span class="text-xs text-gray-500">20.05.2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 3 -->
+                    <article class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=dark%20cyberpunk%20image%20of%20backlink%20concept%2C%20showing%20digital%20chains%20connecting%20websites%2C%20technical%2C%20dark%20theme&width=600&height=400&seq=9&orientation=landscape" alt="Backlinks" class="w-full h-full object-cover object-top">
+                            <div class="absolute top-0 right-0 bg-primary text-black text-xs font-medium px-2 py-1">
+                                Лінкбілдинг
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-primary transition-colors">Сповідь лінкбілдера: Я написав 10 000 листів і отримав 3 посилання</h3>
+                            <p class="text-gray-400 text-sm mb-4">Історія відчаю, надії та розчарування в світі аутріч-маркетингу. Чому всі ігнорують ваші листи?</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-2">
+                                        <span class="text-primary text-xs">ДК</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Дмитро Ковальчук</span>
+                                </div>
+                                <span class="text-xs text-gray-500">18.05.2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 4 -->
+                    <article class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=dark%20cyberpunk%20image%20of%20analytics%20concept%2C%20showing%20complex%20dashboards%20with%20dropping%20metrics%2C%20technical%2C%20dark%20theme&width=600&height=400&seq=10&orientation=landscape" alt="Analytics" class="w-full h-full object-cover object-top">
+                            <div class="absolute top-0 right-0 bg-primary text-black text-xs font-medium px-2 py-1">
+                                Аналітика
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-primary transition-colors">Як пояснити клієнту, що його трафік впав на 90%</h3>
+                            <p class="text-gray-400 text-sm mb-4">Мистецтво створення красивих графіків, які відволікають увагу від катастрофічного падіння позицій.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-2">
+                                        <span class="text-primary text-xs">ІС</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Ірина Сергієнко</span>
+                                </div>
+                                <span class="text-xs text-gray-500">15.05.2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 5 -->
+                    <article class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=dark%20cyberpunk%20image%20of%20robots.txt%20concept%2C%20showing%20digital%20barrier%20with%20forbidden%20signs%2C%20technical%2C%20dark%20theme&width=600&height=400&seq=11&orientation=landscape" alt="Robots.txt" class="w-full h-full object-cover object-top">
+                            <div class="absolute top-0 right-0 bg-primary text-black text-xs font-medium px-2 py-1">
+                                Технічне SEO
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-primary transition-colors">Robots.txt: Як випадково заблокувати весь свій сайт</h3>
+                            <p class="text-gray-400 text-sm mb-4">Реальна історія про те, як один рядок коду видалив сайт з індексу і змусив власника бізнесу плакати.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-2">
+                                        <span class="text-primary text-xs">АП</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Андрій Петренко</span>
+                                </div>
+                                <span class="text-xs text-gray-500">12.05.2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 6 -->
+                    <article class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-video bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=dark%20cyberpunk%20image%20of%20SEO%20agency%20concept%2C%20showing%20chaotic%20office%20with%20stressed%20people%2C%20technical%2C%20dark%20theme&width=600&height=400&seq=12&orientation=landscape" alt="SEO Agency" class="w-full h-full object-cover object-top">
+                            <div class="absolute top-0 right-0 bg-primary text-black text-xs font-medium px-2 py-1">
+                                Кар'єра
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-primary transition-colors">Вигорання в SEO: Коли ви перестаєте вірити в Google</h3>
+                            <p class="text-gray-400 text-sm mb-4">Психологічний портрет SEO-спеціаліста після 10 років роботи та 50 алгоритмічних апдейтів.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-2">
+                                        <span class="text-primary text-xs">НТ</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Наталія Тимошенко</span>
+                                </div>
+                                <span class="text-xs text-gray-500">10.05.2025</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Shop Section -->
+        <section id="shop" class="py-16 md:py-24 bg-[#121212]">
+            <div class="container mx-auto px-4">
+                <h2 class="vt323 text-3xl md:text-4xl font-bold mb-2 text-primary text-center">Магазин дарів</h2>
+                <p class="text-gray-400 mb-12 text-center max-w-2xl mx-auto">Священні артефакти для справжніх послідовників Церкви Святого Індексу.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Product 1 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=black%20t-shirt%20with%20funny%20SEO%20slogan%20DR%2080%20-%20IQ%200%2C%20minimalist%20design%20on%20dark%20background%2C%20product%20photography&width=500&height=500&seq=13&orientation=squarish" alt="T-shirt" class="w-full h-full object-cover object-top">
+                            <div class="absolute top-2 right-2 bg-primary text-black text-xs font-medium px-2 py-1 rounded">
+                                Новинка
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Футболка "DR 80 — розуму 0"</h3>
+                            <p class="text-gray-400 text-sm mb-4">Чорна футболка з мінімалістичним дизайном для справжніх SEO-фахівців.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴799</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=black coffee mug with funny SEO slogan 'noindex = no peace', minimalist design on dark background, product photography&width=500&height=500&seq=14&orientation=squarish" alt="Coffee Mug" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Чашка "noindex = no peace"</h3>
+                            <p class="text-gray-400 text-sm mb-4">Керамічна чашка для тих, хто розуміє біль технічного SEO.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴399</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=laptop%20stickers%20set%20with%20funny%20SEO%20slogans%20and%20symbols%2C%20minimalist%20design%20on%20dark%20background%2C%20product%20photography&width=500&height=500&seq=15&orientation=squarish" alt="Stickers" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Набір наліпок "SEO Pain"</h3>
+                            <p class="text-gray-400 text-sm mb-4">10 вінілових наліпок з найболючішими SEO-жартами для вашого ноутбука.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴299</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=black%20hoodie%20with%20funny%20SEO%20design%20showing%20I%20survived%20another%20algorithm%20update%2C%20minimalist%20design%20on%20dark%20background%2C%20product%20photography&width=500&height=500&seq=16&orientation=squarish" alt="Hoodie" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Худі "Algorithm Survivor"</h3>
+                            <p class="text-gray-400 text-sm mb-4">Тепла худі для тих, хто пережив усі алгоритмічні апдейти з 2011 року.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴1299</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=black%20notebook%20with%20funny%20SEO%20design%20showing%20SEO%20Ideas%20That%20Will%20Never%20Work%2C%20minimalist%20design%20on%20dark%20background%2C%20product%20photography&width=500&height=500&seq=17&orientation=squarish" alt="Notebook" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Блокнот "SEO Ideas That Will Never Work"</h3>
+                            <p class="text-gray-400 text-sm mb-4">100 сторінок для запису ідей, які ніколи не спрацюють, але клієнт наполягає.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴349</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=black%20cap%20with%20funny%20SEO%20design%20showing%20meta%20robots:%20nofollow%2C%20minimalist%20design%20on%20dark%20background%2C%20product%20photography&width=500&height=500&seq=18&orientation=squarish" alt="Cap" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Кепка "meta robots: nofollow"</h3>
+                            <p class="text-gray-400 text-sm mb-4">Стильна чорна кепка для тих, хто хоче, щоб їх не помічали на SEO-конференціях.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴499</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 7 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=black%20poster%20with%20funny%20SEO%20design%20showing%20The%20Evolution%20of%20Google%20Algorithm%20Updates%2C%20minimalist%20design%20on%20dark%20background%2C%20product%20photography&width=500&height=500&seq=19&orientation=squarish" alt="Poster" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Постер "Еволюція алгоритмів Google"</h3>
+                            <p class="text-gray-400 text-sm mb-4">Мінімалістичний постер з історією всіх алгоритмічних апдейтів від Panda до сьогодні.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴449</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 8 -->
+                    <div class="bg-[#1a1a1a] border border-primary/30 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                        <div class="aspect-square bg-[#222] relative overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=black%20desk%20mat%20with%20funny%20SEO%20design%20showing%20This%20is%20where%20the%20magic%20doesnt%20happen%2C%20minimalist%20design%20on%20dark%20background%2C%20product%20photography&width=500&height=500&seq=20&orientation=squarish" alt="Desk Mat" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-medium mb-1">Килимок для миші "This is where the magic doesn't happen"</h3>
+                            <p class="text-gray-400 text-sm mb-4">Великий килимок для миші з нагадуванням про реальність SEO-життя.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">₴599</span>
+                                <button class="px-3 py-2 bg-primary hover:bg-primary/90 text-black text-sm font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">До кошика</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Dark SEO Portal -->
+        <section class="py-16 bg-[#0a0a0a] relative overflow-hidden">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-lg mx-auto text-center">
+                    <h2 class="vt323 text-3xl md:text-4xl font-bold mb-6 text-primary glitch">Портал у чорне SEO</h2>
+                    <p class="text-gray-400 mb-8">Таємний прохід до заборонених технік і методів, які ніколи не повинні бути використані. Або повинні?</p>
+                    
+                    <button id="dark-portal-button" class="px-4 py-2 bg-[#300a40] hover:bg-[#3d0c52] text-primary text-sm font-medium border border-primary/30 rounded-button transition-all duration-200 button-glitch whitespace-nowrap">
+                        Ніхто не знає, що буде, якщо натиснути...
+                    </button>
+                </div>
+            </div>
+            
+            <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+                <div class="ascii-divider text-[8px] md:text-xs">
+                    <pre>
+                    ▄████▄   ██▓     ██▓ ▄████▄   ██ ▄█▀    ▄▄▄      ▄▄▄█████▓    ▒█████   █     █░███▄    █     ██▀███   ██▓  ██████  ██ ▄█▀
+                    ▒██▀ ▀█  ▓██▒    ▓██▒▒██▀ ▀█   ██▄█▒    ▒████▄    ▓  ██▒ ▓▒   ▒██▒  ██▒▓█░ █ ░█░██ ▀█   █    ▓██ ▒ ██▒▓██▒▒██    ▒  ██▄█▒ 
+                    ▒▓█    ▄ ▒██░    ▒██▒▒▓█    ▄ ▓███▄░    ▒██  ▀█▄  ▒ ▓██░ ▒░   ▒██░  ██▒▒█░ █ ░█▓██  ▀█ ██▒   ▓██ ░▄█ ▒▒██▒░ ▓██▄   ▓███▄░ 
+                    ▒▓▓▄ ▄██▒▒██░    ░██░▒▓▓▄ ▄██▒▓██ █▄    ░██▄▄▄▄██ ░ ▓██▓ ░    ▒██   ██░░█░ █ ░█▓██▒  ▐▌██▒   ▒██▀▀█▄  ░██░  ▒   ██▒▓██ █▄ 
+                    ▒ ▓███▀ ░░██████▒░██░▒ ▓███▀ ░▒██▒ █▄    ▓█   ▓██▒  ▒██▒ ░    ░ ████▓▒░░░██▒██▓▒██░   ▓██░   ░██▓ ▒██▒░██░▒██████▒▒▒██▒ █▄
+                    ░ ░▒ ▒  ░░ ▒░▓  ░░▓  ░ ░▒ ▒  ░▒ ▒▒ ▓▒    ▒▒   ▓▒█░  ▒ ░░      ░ ▒░▒░▒░ ░ ▓░▒ ▒ ░ ▒░   ▒ ▒    ░ ▒▓ ░▒▓░░▓  ▒ ▒▓▒ ▒ ░▒ ▒▒ ▓▒
+                      ░  ▒   ░ ░ ▒  ░ ▒ ░  ░  ▒   ░ ░▒ ▒░     ▒   ▒▒ ░    ░         ░ ▒ ▒░   ▒ ░ ░ ░ ░░   ░ ▒░     ░▒ ░ ▒░ ▒ ░░ ░▒  ░ ░░ ░▒ ▒░
+                    ░          ░ ░    ▒ ░░        ░ ░░ ░      ░   ▒     ░         ░ ░ ░ ▒    ░   ░    ░   ░ ░      ░░   ░  ▒ ░░  ░  ░  ░ ░░ ░ 
+                    ░ ░          ░  ░ ░  ░ ░      ░  ░            ░  ░                ░ ░      ░            ░       ░      ░        ░  ░  ░   
+                    ░                    ░                                                                                                       
+                    </pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Temple Login Modal -->
+    <div id="temple-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center">
+        <div class="bg-[#1a1a1a] border border-primary/50 rounded-lg max-w-md w-full mx-4 p-6 relative">
+            <button id="close-temple-modal" class="absolute top-4 right-4 text-gray-400 hover:text-primary">
+                <i class="ri-close-line ri-lg"></i>
+            </button>
+            
+            <h3 class="vt323 text-2xl font-bold mb-6 text-primary">Вхід до Храму Святого Індексу</h3>
+            
+            <form id="temple-login-form">
+                <div class="mb-4">
+                    <label for="temple-username" class="block text-sm font-medium text-gray-400 mb-2">Ім'я послідовника</label>
+                    <input type="text" id="temple-username" class="terminal-input w-full rounded border-none" placeholder="seo_believer_2025">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="temple-password" class="block text-sm font-medium text-gray-400 mb-2">Таємне слово</label>
+                    <input type="password" id="temple-password" class="terminal-input w-full rounded border-none" placeholder="••••••••">
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-400 mb-2">SEO-капча: Обери дії, що ведуть до штрафу</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center bg-[#222] p-2 rounded">
+                            <input type="checkbox" class="custom-checkbox" value="keyword-stuffing">
+                            <span class="text-sm text-gray-300">Keyword stuffing</span>
+                        </label>
+                        <label class="flex items-center bg-[#222] p-2 rounded">
+                            <input type="checkbox" class="custom-checkbox" value="quality-content">
+                            <span class="text-sm text-gray-300">Якісний контент</span>
+                        </label>
+                        <label class="flex items-center bg-[#222] p-2 rounded">
+                            <input type="checkbox" class="custom-checkbox" value="hidden-text">
+                            <span class="text-sm text-gray-300">Прихований текст</span>
+                        </label>
+                        <label class="flex items-center bg-[#222] p-2 rounded">
+                            <input type="checkbox" class="custom-checkbox" value="mobile-friendly">
+                            <span class="text-sm text-gray-300">Mobile-friendly</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full px-4 py-3 bg-primary hover:bg-primary/90 text-black font-medium rounded-button transition-all duration-200 button-glitch whitespace-nowrap">Увійти до Храму</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] border-t border-primary/20 pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="font-['Pacifico'] text-xl text-primary hover-glitch">
+                        Церква Святого Індексу
+                    </a>
+                    <p class="text-gray-400 text-sm mt-4">Спільнота для тих, хто втратив віру в SERP, але продовжує боротьбу.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Навігація</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#horoscope" class="text-gray-400 hover:text-primary text-sm">Гороскопи</a></li>
+                        <li><a href="#religion" class="text-gray-400 hover:text-primary text-sm">SEO-релігія</a></li>
+                        <li><a href="#confession" class="text-gray-400 hover:text-primary text-sm">Сповідальня</a></li>
+                        <li><a href="#memes" class="text-gray-400 hover:text-primary text-sm">Мемосховище</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-primary text-sm">Проклятий блог</a></li>
+                        <li><a href="#shop" class="text-gray-400 hover:text-primary text-sm">Магазин дарів</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Правова інформація</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary text-sm">Умови використання</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary text-sm">Політика конфіденційності</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary text-sm">Cookie-файли</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary text-sm">Відмова від відповідальності</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Підписка на розсилку</h4>
+                    <p class="text-gray-400 text-sm mb-4">Отримуйте щотижневі SEO-пророцтва та мудрість.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="your@email.com" class="terminal-input rounded-l border-none flex-1">
+                        <button class="px-4 py-2 bg-primary hover:bg-primary/90 text-black font-medium rounded-r-button transition-all duration-200 whitespace-nowrap">Підписатися</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 text-center">
+                <p class="text-gray-500 text-sm mb-4">Цей сайт — жарт. Якщо сприймаєш серйозно — ти в SEO занадто довго.</p>
+                <p class="text-gray-600 text-xs">© 2025 Церква Падіння Позицій. Всі права захищені, але Google їх все одно не проіндексує.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    
+    <script id="temple-login-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const templeLinks = document.querySelectorAll('a[href="#temple"]');
+            const templeModal = document.getElementById('temple-modal');
+            const closeTempleModal = document.getElementById('close-temple-modal');
+            const templeLoginForm = document.getElementById('temple-login-form');
+            
+            templeLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    templeModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            closeTempleModal.addEventListener('click', function() {
+                templeModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+            
+            templeLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('temple-username').value;
+                const password = document.getElementById('temple-password').value;
+                const captchaItems = document.querySelectorAll('input[type="checkbox"]:checked');
+                
+                const correctAnswers = ['keyword-stuffing', 'hidden-text'];
+                const selectedValues = Array.from(captchaItems).map(item => item.value);
+                
+                let isCorrect = true;
+                
+                // Check if all correct answers are selected
+                correctAnswers.forEach(answer => {
+                    if (!selectedValues.includes(answer)) {
+                        isCorrect = false;
+                    }
+                });
+                
+                // Check if any incorrect answers are selected
+                selectedValues.forEach(value => {
+                    if (!correctAnswers.includes(value)) {
+                        isCorrect = false;
+                    }
+                });
+                
+                if (username && password && isCorrect) {
+                    alert('Вітаємо в Храмі Святого Індексу! Тут би була секретна сторінка, але це лише демо.');
+                    templeModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                } else {
+                    alert('Невірні дані або капча. Googlebot засмучений.');
+                }
+            });
+        });
+    </script>
+    
+    <script id="horoscope-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const prophecies = [
+                "Сьогодні Марс у сузір'ї Пінгвіна. Ваш CTR впаде до 0.02%, але не панікуйте — це лише тимчасово. Використовуйте більше H2 заголовків і принесіть жертву Googlebot'у у вигляді XML-карти сайту.",
+                "Юпітер входить у фазу Core Update. Ваші ключові слова втратять позиції, але натомість ви отримаєте несподіваний трафік з Bing. Так, це звучить неймовірно, але зірки не брешуть.",
+                "Меркурій ретроградний, що означає масове падіння індексації. Сьогодні не оновлюйте robots.txt і не змінюйте структуру сайту. Краще медитуйте на Google Search Console.",
+                "Венера з'єднується з Сатурном у домі контенту. Ідеальний день для написання лонгрідів, але уникайте використання ключових слів з високою конкуренцією. Вони принесуть лише розчарування.",
+                "Місяць у фазі Page Experience. Сьогодні ваш сайт буде оцінюватися за швидкістю завантаження. Видаліть усі непотрібні скрипти і помоліться богу Core Web Vitals.",
+                "Сонце в сузір'ї E-A-T. Ваша експертність буде під питанням. Додайте більше посилань на авторитетні джерела і, можливо, вигадайте кілька наукових ступенів.",
+                "Нептун впливає на ваш домен. Очікуйте дивних запитів у Search Console та незрозумілих відмов у індексації. Класичний випадок космічного втручання в SEO."
+            ];
+            
+            const newProphecyButton = document.getElementById('new-prophecy');
+            const prophecyElement = document.getElementById('prophecy');
+            
+            newProphecyButton.addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * prophecies.length);
+                prophecyElement.textContent = prophecies[randomIndex];
+                
+                // Add shake effect
+                prophecyElement.classList.add('shake');
+                setTimeout(() => {
+                    prophecyElement.classList.remove('shake');
+                }, 500);
+            });
+        });
+    </script>
+    
+    <script id="confession-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const confessionForm = document.getElementById('confession-form');
+            
+            confessionForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const sinCategory = document.getElementById('sin-category').value;
+                const sinText = document.getElementById('sin-text').value;
+                
+                if (sinText.trim() === '') {
+                    alert('Будь ласка, опишіть свій гріх');
+                    return;
+                }
+                
+                // In a real app, this would send the confession to a server
+                alert('Ваші гріхи відпущено. Googlebot все бачить, але прощає.');
+                
+                // Reset form
+                document.getElementById('sin-text').value = '';
+            });
+        });
+    </script>
+    
+    <script id="dark-portal-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkPortalButton = document.getElementById('dark-portal-button');
+            
+            darkPortalButton.addEventListener('click', function() {
+                // Add glitch effect
+                darkPortalButton.classList.add('glitch');
+                
+                setTimeout(() => {
+                    alert('Вітаємо! Ви щойно потрапили до списку Google для спеціального моніторингу. Насолоджуйтесь ручними перевірками!');
+                    darkPortalButton.classList.remove('glitch');
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
